@@ -1,5 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import './Resources/css/app.css';
+import { BrowserRouter } from 'react-router-dom';
+
+import Routes from './routes';
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <Routes />
+    </BrowserRouter>
+  )
+}
 
 ReactDOM.render(<App />, document.getElementById('root'));
+
+// Todo: take this out
+if(module.hot){
+  module.hot.accept();
+}
