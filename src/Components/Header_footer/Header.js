@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { AppBar, Toolbar, Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-
+import CityLogo from '../ui/icons.js';
 
 class Header extends Component {
   render() {
@@ -9,10 +9,10 @@ class Header extends Component {
       <AppBar
         position='fixed'
         style={{
-          backgroundColor: '#226666',
+          backgroundColor: '#00adb5',
           boxShadow: 'none',
           padding: '12px 0',
-          borderBottom: '2.7px solid #f1b74e'
+          borderBottom: '2.7px solid #393e46'
         }}
       >
         <Toolbar
@@ -20,7 +20,12 @@ class Header extends Component {
         >
           <div style={{flexGrow: 1}}>
             <div className="header_logo">
-              Logo
+              <CityLogo 
+                link={true}
+                linkTo="/"
+                width="70px"
+                height="70px"
+              />
             </div>
           </div>
           <Link to="/the_team">
