@@ -163,7 +163,7 @@ footer .footer_disclamer {
 
 .featured_wrapper {
     margin: 0 auto;
-    width: 1280px;
+    /* width: 1280px; */
     margin-top: 90px;
     height: 800px;
     overflow: hidden;
@@ -681,4 +681,20 @@ footer .footer_disclamer {
     color: #d5ebfe;
     text-align: center;
     margin-top: 200px;
+}
+
+@media only screen and (max-width: 767px) {
+    .featured_stripes .stripe {
+        width: 110px;
+        height: 1200px;
+    }
+    #first-stripe {
+        left: -250px;
+    }
+    #second-stripe {
+        left: -390px;
+    }
+    #third-stripe {
+        left: -530px;
+    }
 }

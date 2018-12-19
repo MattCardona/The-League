@@ -13,21 +13,24 @@ class Stripes extends Component {
           left: 120,
           rotate: 25,
           top: -260,
-          delay: 0
+          delay: 0,
+          ids: 'first-stripe'
         },
         {
           background: '#fff',
           left: 360,
           rotate: 25,
           top: -397,
-          delay: 200
+          delay: 200,
+          ids: 'second-stripe'
         },
         {
           background: '#00adb5',
           left: 600,
           rotate: 25,
           top: -498,
-          delay: 400
+          delay: 400,
+          ids: 'third-stripe'
         }
       ]
     }
@@ -57,6 +60,7 @@ class Stripes extends Component {
           {({background, opacity, left, rotate, top}) => {
             return (
               <div className="stripe"
+                id={stripe.ids}
                 style={{
                   background,
                   opacity,
