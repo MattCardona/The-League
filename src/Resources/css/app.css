@@ -710,6 +710,23 @@ Need to make the stripes even more responsive
 */
 @media only screen and (max-width: 767px) {
     .featured_stripes .stripe {
+        width: 150px;
+        height: 1200px;
+    }
+    #first-stripe {
+        left: -166px;
+    }
+    #second-stripe {
+        left: -253px;
+    }
+    #third-stripe {
+        left: -340px;
+    }
+}
+
+/* small pnhones from 0 to 480px */
+@media only screen and (max-width: 480px) {
+    .featured_stripes .stripe {
         width: 110px;
         height: 1200px;
     }
@@ -723,6 +740,3 @@ Need to make the stripes even more responsive
         left: -530px;
     }
 }
-
-/* small pnhones from 0 to 480px */
-@media only screen and (max-width: 480px) {}
