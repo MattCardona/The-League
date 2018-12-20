@@ -746,6 +746,22 @@ Need to make the stripes even more responsive
     #third-stripe {
         left: -340px;
     }
+    .featured_number {
+        font-size: 190px;
+    }
+
+     .featured_first {
+        font-size: 56px;
+    }
+
+    .featured_second {
+        font-size: 56px;
+    }
+
+    .featured_player {
+        left: -387px;
+        width: 450px;
+    }
 }
 
 /* small pnhones from 0 to 480px */
