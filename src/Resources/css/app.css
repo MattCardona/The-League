@@ -200,7 +200,7 @@ footer .footer_disclamer {
 }
 .featured_first {
     position: absolute;
-    background: #0e1731;
+    background: #222831;
     color: #ffffff;
     font-size: 92px;
     text-transform: uppercase;
@@ -209,7 +209,7 @@ footer .footer_disclamer {
 
 .featured_second {
     position: absolute;
-    background: #0e1731;
+    background: #222831;
     color: #ffffff;
     font-size: 92px;
     text-transform: uppercase;
@@ -700,6 +700,30 @@ footer .footer_disclamer {
     }
     #third-stripe {
         left: -250px;
+    }
+
+    .featured_number {
+        font-size: 200px;
+        left: -205px;
+        top: -31px;
+    }
+
+    .featured_first {
+        left: -216px;
+        font-size: 62px;
+        top: -58px;
+    }
+
+    .featured_second {
+        left: -216px;
+        font-size: 62px;
+        top: -80px;
+    }
+
+    .featured_player {
+        left: -310px;
+        width: 480px;
+        top: -80px;
     }
 }
 
