@@ -779,4 +779,26 @@ Need to make the stripes even more responsive
     #third-stripe {
         left: -530px;
     }
+
+    .featured_number {
+        font-size: 165px;
+        left: -251px;
+        top: 16px;
+    }
+
+     .featured_first {
+        font-size: 41px;
+        left: -267px;
+    }
+
+    .featured_second {
+        font-size: 41px;
+        left: -266px;
+        top: -117px;
+    }
+
+    .featured_player {
+        left: -469px;
+        width: 400px;
+    }
 }
