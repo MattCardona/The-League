@@ -9,7 +9,7 @@ class Stripes extends Component {
     this.state = {
       stripes: [
         {
-          background: '#00adb5',
+          background: '#903749',
           left: 120,
           rotate: 25,
           top: -260,
@@ -25,7 +25,7 @@ class Stripes extends Component {
           ids: 'second-stripe'
         },
         {
-          background: '#00adb5',
+          background: '#903749',
           left: 600,
           rotate: 25,
           top: -498,

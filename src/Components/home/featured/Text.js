@@ -33,7 +33,7 @@ class Text extends React.Component {
                 transform: `translate(260px, 170px) rotateY(${rotate}deg)`
               }}
             >
-              8
+              5
             </div>
           )
         }}

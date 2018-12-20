@@ -9,7 +9,7 @@ class Header extends Component {
       <AppBar
         position='fixed'
         style={{
-          backgroundColor: '#00adb5',
+          backgroundColor: '#903749',
           boxShadow: 'none',
           padding: '12px 0',
           borderBottom: '2.7px solid #393e46'
@@ -26,6 +26,7 @@ class Header extends Component {
                 width="70px"
                 height="70px"
               />
+              <h1 className="man_city">Man. City</h1>
             </div>
           </div>
           <Link to="/the_team">
