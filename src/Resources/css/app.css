@@ -17,15 +17,15 @@ a {
     background: #222831;
 }
 
-.bck_lblue {
+/* .bck_lblue {
     background: #98c5e9;
-}
+} */
 
 .img_cover {
     background-size: cover !important;
 }
 .container {
-    width:1024px;
+    /* width:1024px; */
     margin: 0 auto;
 }
 
@@ -226,7 +226,7 @@ footer .footer_disclamer {
 ===============================*/
 
 .home_matches_wrapper {
-    background: #98c5e9;
+    background: #903749;
     margin-top:9px;
     padding: 50px 0px;
 }
@@ -772,7 +772,7 @@ Need to make the stripes even more responsive
 /* small pnhones from 0 to 480px */
 @media only screen and (max-width: 480px) {
     .man_city {
-        font-size: 24px;
+        font-size: 21px;
     }
 
     .featured_stripes .stripe {
