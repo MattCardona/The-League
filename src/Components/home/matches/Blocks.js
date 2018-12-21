@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { fireMatches } from '../../../firebase.js';
 import { firebaseLooper, reverseArray } from '../../ui/misc.js';
 import MatchesBlock from '../../ui/MatchesBlock.js';
+import { Slide } from 'react-reveal';
 
 class Blocks extends Component {
   constructor(props) {
@@ -20,12 +21,14 @@ class Blocks extends Component {
   }
   showMatches(matches) {
     if(matches.length > 1){
-      return matches.map((match, i) => (
-        <div className="item" key={i}>
-          <div className="wrapper">
-            <MatchesBlock match={match} />
+      return matches.map((match) => (
+        <Slide bottom key={match.id}>
+          <div className="item">
+            <div className="wrapper">
+              <MatchesBlock match={match} />
+            </div>
           </div>
-        </div>
+        </Slide>
       ))
     }else{
       return null;
