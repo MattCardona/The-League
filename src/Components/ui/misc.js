@@ -9,7 +9,8 @@ export const Tag = (props) => {
       fontSize: props.size,
       padding: '5px 10px',
       display: 'inline-block',
-      fontFamily: 'Righteous'
+      fontFamily: 'Righteous',
+      marginLeft: '26px'
     }}
   >{props.children}</div>
 

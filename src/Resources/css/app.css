@@ -250,10 +250,14 @@ footer .footer_disclamer {
 /*=============================
             MATCHES BLOCK
 ===============================*/
+.match_wrapper {
+    margin-left: 25px;
+}
 
 .match_block .match_date{
     color:#ffffff;
     font-size:18px;
+    padding-left: 26px;
 }
 
 .match_block .match_wrapper .match_top,
@@ -767,6 +771,15 @@ Need to make the stripes even more responsive
         left: -387px;
         width: 450px;
     }
+    
+    .match_wrapper {
+        margin-left: 25px;
+    }
+
+    .match_block .match_wrapper .match_top .left .team_name,
+    .match_block .match_wrapper .match_bottom .left .team_name {
+        font-size: 20px;
+    }
 }
 
 /* small pnhones from 0 to 480px */
@@ -809,5 +822,13 @@ Need to make the stripes even more responsive
     .featured_player {
         left: -469px;
         width: 400px;
+    }
+
+    .home_matches_wrapper .home_matches {
+        display: block;
+    }
+
+    .home_matches_wrapper .home_matches .item {
+        width: 100%
     }
 }
