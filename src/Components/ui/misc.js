@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 export const Tag = (props) => {
   const temp = <div
     style={{
+      ...props.add,
       background: props.bck,
       color: props.color,
       fontSize: props.size,

@@ -412,7 +412,8 @@ footer .footer_disclamer {
 
 .home_meetplayers .home_text_wrapper {
     float: right;
-    width: 390px;
+    /* width: 390px; */
+    padding-right: 25px;
 }
 
 /*=============================
