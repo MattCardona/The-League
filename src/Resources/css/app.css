@@ -392,7 +392,9 @@ footer .footer_disclamer {
 /*=============================
             MATCHES BLOCK
 ===============================*/
-
+/*=============================
+            MEETPLAYERS BLOCK
+===============================*/
 
 .home_meetplayers { 
     background: #ffffff;
@@ -415,6 +417,9 @@ footer .footer_disclamer {
     /* width: 390px; */
     padding-right: 25px;
 }
+/*=============================
+            MEETPLAYERS BLOCK
+===============================*/
 
 /*=============================
             MATCHES BLOCK
@@ -734,6 +739,33 @@ footer .footer_disclamer {
         left: -310px;
         width: 480px;
         top: -80px;
+    }
+    /*=============================
+            MEETPLAYERS BLOCK
+    ===============================*/
+
+    /* .home_meetplayers_wrapper {
+        padding-bottom: 100px;
+        min-height: 600px;
+    }
+
+    .home_meetplayers .home_card_wrapper {
+        position: relative;
+        float: left;
+        width: 630px;
+        min-height: 600px;
+    }
+
+    .home_meetplayers .home_text_wrapper {
+        padding-right: 25px;
+    } */
+
+    .home_text_wrapper {
+        margin-top: -500px; 
+    }
+
+    #tag_id {
+        font-size: 65px!important;
     }
 }
 

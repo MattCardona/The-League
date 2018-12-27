@@ -13,6 +13,7 @@ export const Tag = (props) => {
       fontFamily: 'Righteous',
       marginLeft: '26px'
     }}
+    id={props.id}
   >{props.children}</div>
 
   if(props.link){

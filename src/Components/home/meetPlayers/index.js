@@ -18,9 +18,10 @@ class MeetPlayers extends Component {
               CARD
             </div>
             <div className="home_text_wrapper">
-            
-              <div>
+
+              <div className="tag-div">
                 <Tag
+                  id="tag_id"
                   bck="#0e1731"
                   size="100px"
                   color="#fff"
@@ -32,8 +33,9 @@ class MeetPlayers extends Component {
                   Meet
                 </Tag>
               </div>
-              <div>
+              <div className="tag-div">
                 <Tag
+                  id="tag_id"
                   bck="#0e1731"
                   size="100px"
                   color="#fff"
@@ -45,14 +47,15 @@ class MeetPlayers extends Component {
                   The
                 </Tag>
               </div>
-              <div>
+              <div className="tag-div">
                 <Tag
+                  id="tag_id"
                   bck="#0e1731"
                   size="100px"
                   color="#fff"
                   add={{
                     display: 'inline-block',
-                    marginBottom: '20px'
+                    marginBottom: '20px',
                   }}
                 >
                   Players
