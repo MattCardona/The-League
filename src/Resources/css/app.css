@@ -424,7 +424,9 @@ footer .footer_disclamer {
 /*=============================
             MATCHES BLOCK
 ===============================*/
-
+.home_card_wrapper {
+    margin-top: -80px;
+}
 
 .player_card_wrapper {
     background: #ffffff;
@@ -432,7 +434,9 @@ footer .footer_disclamer {
     width: 300px;
     padding: 10px 10px 20px 10px;
     font-family: 'Righteous';
+    margin-left: 50px;
 }
+
 .player_card_wrapper .player_card_thmb {
     border: 1px solid #eeeeee;
     width:100%;
@@ -761,7 +765,8 @@ footer .footer_disclamer {
     } */
 
     .home_text_wrapper {
-        margin-top: -500px; 
+        margin-top: -500px;
+        position: relative; 
     }
 
     #tag_id {
@@ -863,5 +868,9 @@ Need to make the stripes even more responsive
 
     .home_matches_wrapper .home_matches .item {
         width: 100%
+    }
+
+    .home_card_wrapper {
+        visibility: hidden;
     }
 }
