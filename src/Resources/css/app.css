@@ -425,7 +425,7 @@ footer .footer_disclamer {
             MATCHES BLOCK
 ===============================*/
 .home_card_wrapper {
-    margin-top: -80px;
+    margin-top: -20px;
 }
 
 .player_card_wrapper {
@@ -446,11 +446,11 @@ footer .footer_disclamer {
     background-size: contain !important;
 }
 
-.player_card_wrapper .player_card_nfo {
+.player_card_wrapper .player_card_info {
     position: relative;
 }
 .player_card_wrapper .player_card_number {
-    color: #d6ecfe;
+    color: #913648;
     font-size: 185px;
     text-align: right;
     line-height: 160px;
@@ -467,8 +467,9 @@ footer .footer_disclamer {
     color: #0d1831;
 }
 
-.home_text_wrapper {
+.home_meetplayers .home_text_wrapper {
     margin-top: 70px;
+    /* margin-top: -500px; */
 }
 
 
@@ -703,7 +704,12 @@ footer .footer_disclamer {
 }
 
 /* big tablets to 1200px: widths smaller than the 1140px row */
-@media only screen and (max-width: 1200px) {}
+@media only screen and (max-width: 1200px) {
+    .home_meetplayers .home_text_wrapper {
+        margin-top: -500px;
+        position: relative; 
+    }
+}
 
 /* small tablet to big tablets in portrait/landscape mode: from 768px to 1023px */
 @media only screen and (max-width: 1023px) {
@@ -759,13 +765,10 @@ footer .footer_disclamer {
         width: 630px;
         min-height: 600px;
     }
+     */
 
-    .home_meetplayers .home_text_wrapper {
-        padding-right: 25px;
-    } */
-
-    .home_text_wrapper {
-        margin-top: -500px;
+    .home_meetplayers  .home_text_wrapper {
+        /* margin-top: -500px; */
         position: relative; 
     }
 
@@ -818,6 +821,15 @@ Need to make the stripes even more responsive
     .match_block .match_wrapper .match_bottom .left .team_name {
         font-size: 20px;
     }
+
+    .home_meetplayers .home_card_wrapper {
+        display: none;
+    }
+
+    .home_meetplayers .home_text_wrapper {
+        margin-top: 150px;
+        margin-right: 200px;
+    }
 }
 
 /* small pnhones from 0 to 480px */
@@ -861,6 +873,12 @@ Need to make the stripes even more responsive
         left: -469px;
         width: 400px;
     }
+    
+    .home_meetplayers .home_text_wrapper {
+        padding-right: 43px;
+        margin-right: 0px;
+        margin-top: 100px;
+    }
 
     .home_matches_wrapper .home_matches {
         display: block;
@@ -869,8 +887,8 @@ Need to make the stripes even more responsive
     .home_matches_wrapper .home_matches .item {
         width: 100%
     }
-
-    .home_card_wrapper {
-        visibility: hidden;
+    
+    .home_meetplayers .home_card_wrapper {
+        display: none;
     }
 }

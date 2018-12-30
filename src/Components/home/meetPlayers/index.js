@@ -14,7 +14,7 @@ class MeetPlayers extends Component {
   render() {
     return (
       <Reveal
-        fraction={0.7}
+        fraction={0.4}
         onReveal={() => {
           this.setState((prevState) => ({show: true}))
         }}
