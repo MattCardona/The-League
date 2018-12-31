@@ -830,6 +830,11 @@ Need to make the stripes even more responsive
         margin-top: 150px;
         margin-right: 200px;
     }
+
+    .promotion_wrapper .promotion_animation {
+        display: block;
+        text-align: center;
+    }
 }
 
 /* small pnhones from 0 to 480px */
