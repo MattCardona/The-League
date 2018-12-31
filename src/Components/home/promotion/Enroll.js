@@ -34,7 +34,6 @@ class Enroll extends Component {
 
   }
   updateForm(element){
-    // console.log(element)
     const newFormData = {...this.state.formData};
     const newElement = {...newFormData[element.id]};
 
@@ -44,7 +43,7 @@ class Enroll extends Component {
     newElement.validationMessage = validData[1];
 
     newFormData[element.id] = newElement;
-    console.log(newFormData);
+    // console.log(newFormData);
     this.setState(() => ({formData: newFormData}));
   }
   render() {
