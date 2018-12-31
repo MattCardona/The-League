@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Fade } from 'react-reveal';
+import FormFeilds from '../../ui/FormFeilds.js';
 
 class Enroll extends Component {
   constructor(props) {
@@ -39,7 +40,10 @@ class Enroll extends Component {
               Enter your email
             </div>
             <div className="enroll_input">
-              
+              <FormFeilds 
+                id={'email'}
+                formData={this.state.formData.email}
+              />
             </div>
           </form>
         </div>
