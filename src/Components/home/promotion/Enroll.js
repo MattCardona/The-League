@@ -6,6 +6,7 @@ class Enroll extends Component {
   constructor(props) {
     super(props);
     this.submitForm = this.submitForm.bind(this);
+    this.updateForm = this.updateForm.bind(this);
     this.state = {
       formError: false,
       formSuccess: '',
@@ -31,6 +32,15 @@ class Enroll extends Component {
   submitForm(){
 
   }
+  updateForm(element){
+    console.log(element)
+    const newFormData = {...this.state.formData};
+    const newElement = {...newFormData[element.id]};
+
+    newElement.value = element.event.target.value;
+    newFormData[element.id] = newElement;
+    this.setState(() => ({formData: newFormData}));
+  }
   render() {
     return (
       <Fade>
@@ -43,6 +53,7 @@ class Enroll extends Component {
               <FormFeilds 
                 id={'email'}
                 formData={this.state.formData.email}
+                change={(element) => this.updateForm(element)}
               />
             </div>
           </form>
