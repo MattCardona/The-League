@@ -891,4 +891,18 @@ Need to make the stripes even more responsive
     .home_meetplayers .home_card_wrapper {
         display: none;
     }
+
+    .promotion_wrapper .promotion_animation {
+        display: block;
+    }
+
+    .promotion_wrapper .promotion_animation .left {
+        font-size: 100px;
+        padding-left: 15px;
+    }
+
+    .promotion_wrapper .promotion_animation .right div {
+        margin-left: 60px;
+    }
+
 }
