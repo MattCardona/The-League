@@ -50,6 +50,12 @@ export const reverseArray = (arr) => {
 export const validate = (data) => {
   let error = [true, ''];
 
+  if(data.validation.email){
+    const valid = /\S+@\S+\.\S+/.test(data.value);
+    const message = `${!valid ? 'Needs to be a valid email' : ''}`;
+    error = !valid ? [valid, message] : error;
+  }
+
   if(data.validation.required){
     const valid = data.value.trim() !== '';
     const message = `${!valid ? 'Email field is required' : ''}`; 
