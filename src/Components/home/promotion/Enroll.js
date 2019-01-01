@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Fade } from 'react-reveal';
 import FormFeilds from '../../ui/FormFeilds.js';
 import { validate } from '../../ui/misc.js';
+import { firebasePromotions } from '../../../firebase.js';
 
 class Enroll extends Component {
   constructor(props) {
@@ -32,7 +33,7 @@ class Enroll extends Component {
       }
     };
   }
-  resetFormSuccess(){
+  resetFormSuccess(bool){
     const newFormData = {...this.state.formData};
     for(let key in newFormData){
       newFormData[key].value = '';
@@ -43,7 +44,7 @@ class Enroll extends Component {
     this.setState(() => ({
       formError: false,
       formData: newFormData,
-      formSuccess: "Enrolled"
+      formSuccess: bool ? "Enrolled" : "User email already exist"
     }));
     this.successMessage();
   }
@@ -65,8 +66,17 @@ class Enroll extends Component {
     }
 
     if(formIsValid){
-      console.log(dataToSubmit);
-      this.resetFormSuccess();
+      firebasePromotions.orderByChild('email').equalTo(dataToSubmit.email).once('value').then((snapshot) => {
+        if(snapshot.val() === null){
+          //if no matches add to db
+          firebasePromotions.push(dataToSubmit);
+          this.resetFormSuccess(true);
+        }else{
+          // if already user with email dont put in database
+          this.resetFormSuccess(false);
+        }
+      })
+      
     }else{
       this.setState(() => ({
         formError: true
@@ -106,6 +116,9 @@ class Enroll extends Component {
             </div> : null}
             <div className="success_label">{this.state.formSuccess}</div>
             <button onClick={(event) => this.submitForm(event)}>Enroll</button>
+            <div className="enroll_disclamer">
+              Not all will win, please enter a email to reach you at.
+            </div>
           </form>
         </div>
       </Fade>
