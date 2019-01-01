@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from './Hoc/Layout.js';
 import { Switch, Route } from 'react-router-dom';
 import Home from './Components/home/index.js';
+import SignIn from './Components/signin/index.js';
 
 
 const Routes = (props) => {
@@ -9,6 +10,7 @@ const Routes = (props) => {
     <Layout>
       <Switch>
          <Route exact component={Home} path="/" />
+         <Route exact component={SignIn} path="/sign_in" />
       </Switch>
     </Layout>
   )
