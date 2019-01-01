@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { element } from 'prop-types';
+// import { element } from 'prop-types';
 
 export const Tag = (props) => {
   const temp = <div

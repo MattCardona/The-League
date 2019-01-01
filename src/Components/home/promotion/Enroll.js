@@ -8,6 +8,8 @@ class Enroll extends Component {
     super(props);
     this.submitForm = this.submitForm.bind(this);
     this.updateForm = this.updateForm.bind(this);
+    this.resetFormSuccess = this.resetFormSuccess.bind(this);
+    this.successMessage = this.successMessage.bind(this);
     this.state = {
       formError: false,
       formSuccess: '',
@@ -30,6 +32,28 @@ class Enroll extends Component {
       }
     };
   }
+  resetFormSuccess(){
+    const newFormData = {...this.state.formData};
+    for(let key in newFormData){
+      newFormData[key].value = '';
+      newFormData[key].valid = false;
+      newFormData[key].validationMessage = '';
+    }
+
+    this.setState(() => ({
+      formError: false,
+      formData: newFormData,
+      formSuccess: "Enrolled"
+    }));
+    this.successMessage();
+  }
+  successMessage(){
+    setTimeout(() => {
+      this.setState(() => ({
+        formSuccess: ''
+      }));
+    }, 2100);
+  }
   submitForm(e){
     e.preventDefault();
     let dataToSubmit = {};
@@ -42,6 +66,7 @@ class Enroll extends Component {
 
     if(formIsValid){
       console.log(dataToSubmit);
+      this.resetFormSuccess();
     }else{
       this.setState(() => ({
         formError: true
@@ -79,6 +104,7 @@ class Enroll extends Component {
             {this.state.formError ? <div className="error_label">
               There is something wrong, try once more.
             </div> : null}
+            <div className="success_label">{this.state.formSuccess}</div>
             <button onClick={(event) => this.submitForm(event)}>Enroll</button>
           </form>
         </div>
