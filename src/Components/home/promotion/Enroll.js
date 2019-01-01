@@ -30,8 +30,23 @@ class Enroll extends Component {
       }
     };
   }
-  submitForm(){
+  submitForm(e){
+    e.preventDefault();
+    let dataToSubmit = {};
+    let formIsValid = true;
 
+    for(let key in this.state.formData){
+      dataToSubmit[key] = this.state.formData[key].value;
+      formIsValid = this.state.formData[key].value && formIsValid;
+    }
+
+    if(formIsValid){
+      console.log(dataToSubmit);
+    }else{
+      this.setState(() => ({
+        formError: true
+      }))
+    }
   }
   updateForm(element){
     const newFormData = {...this.state.formData};
@@ -44,7 +59,7 @@ class Enroll extends Component {
 
     newFormData[element.id] = newElement;
     // console.log(newFormData);
-    this.setState(() => ({formData: newFormData}));
+    this.setState(() => ({formData: newFormData, formError: false}));
   }
   render() {
     return (
@@ -61,6 +76,10 @@ class Enroll extends Component {
                 change={(element) => this.updateForm(element)}
               />
             </div>
+            {this.state.formError ? <div className="error_label">
+              There is something wrong, try once more.
+            </div> : null}
+            <button onClick={(event) => this.submitForm(event)}>Enroll</button>
           </form>
         </div>
       </Fade>
