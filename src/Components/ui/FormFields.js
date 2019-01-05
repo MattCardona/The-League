@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FormFeilds = ({formData, id, change}) => {
+const FormFields = ({formData, id, change}) => {
   const showError = () => {
     let errorMessage = (
       <div className="error_label">
@@ -15,6 +15,12 @@ const FormFeilds = ({formData, id, change}) => {
       case('input'):
         formTemplate = (
           <div>
+            { formData.showlabel ?
+              <div className="label_inputs">
+                {formData.config.label}
+              </div>
+              : null
+            }
             <input {...formData.config}
               value={formData.value}
               onChange={(event) => change({event, id})}
@@ -35,4 +41,4 @@ const FormFeilds = ({formData, id, change}) => {
   )
 };
 
-export default FormFeilds;
+export default FormFields;

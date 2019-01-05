@@ -6,12 +6,6 @@ import { firebaseLooper, reverseArray } from '../../ui/misc.js';
 
 import { Table, TableBody, TableCell, TableHead, TableRow, Paper, CircularProgress } from '@material-ui/core';
 
-// import TableBody from '@material-ui/core/TableBody';
-// import TableCell from '@material-ui/core/TableCell';
-// import TableHead from '@material-ui/core/TableHead';
-// import TableRow from '@material-ui/core/TableRow';
-// import Paper from '@material-ui/core/Paper';
-
 class AdminMatches extends Component {
   constructor(props) {
     super(props);
@@ -52,7 +46,7 @@ class AdminMatches extends Component {
                         {match.date}
                       </TableCell>
                       <TableCell>
-                        <Link to={`/admin_match/edit_match/${match.id}`}>
+                        <Link to={`/admin_matches/edit_matches/${match.id}`}>
                           {match.away} <strong>--</strong> {match.local}
                         </Link>
                       </TableCell>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FormFeilds from '../ui/FormFeilds.js';
+import FormFields from '../ui/FormFields.js';
 import { firebase } from '../../firebase.js';
 import { validate } from '../ui/misc.js';
 
@@ -86,12 +86,12 @@ class SignIn extends Component {
         <div className="signin_wrapper" style={{marginTop: '100px'}}>
           <form onSubmit={(e) => this.submitForm(e)}>
             <h2>Login</h2>
-            <FormFeilds 
+            <FormFields 
                 id={'email'}
                 formData={this.state.formData.email}
                 change={(element) => this.updateForm(element)}
               />
-            <FormFeilds 
+            <FormFields 
                 id={'password'}
                 formData={this.state.formData.password}
                 change={(element) => this.updateForm(element)}
