@@ -5,6 +5,8 @@ import Layout from './Hoc/Layout.js';
 import Home from './Components/home/index.js';
 import SignIn from './Components/signin/index.js';
 import Dashboard from './Components/admin/Dashboard.js';
+import AdminMatches from './Components/admin/matches/index.js';
+
 import PrivateRoutes from './Components/authRoutes/PrivateRoutes.js';
 import PublicRoutes from './Components/authRoutes/PublicRoutes.js';
 
@@ -13,6 +15,7 @@ const Routes = (props) => {
     <Layout>
       <Switch>
          <PrivateRoutes {...props} path="/dashboard" exact component={Dashboard} />
+         <PrivateRoutes {...props} path="/admin_matches" exact component={AdminMatches} />
          <PublicRoutes {...props} restricted={false} path="/" exact component={Home} />
          <PublicRoutes {...props} restricted={true} path="/sign_in" exact component={SignIn} />
       </Switch>
