@@ -119,6 +119,27 @@ class AddEditMatch extends Component {
           valid: false,
           validationMessage: '',
           showlabel: true
+        },
+        result: {
+          element: 'select',
+          value: '',
+          config: {
+            label: 'Team result',
+            name: 'select_result',
+            type: 'select',
+            options: [
+              {key: 'W', value: 'W'},
+              {key: 'L', value: 'L'},
+              {key: 'D', value: 'D'},
+              {key: 'n/a', value: 'n/a'},
+            ]
+          },
+          validation: {
+            required: true
+          },
+          valid: false,
+          validationMessage: '',
+          showlabel: true
         }
       }
     }
@@ -189,6 +210,19 @@ class AddEditMatch extends Component {
                   formData={this.state.formData.stadium}
                   change={(element) => this.updateForm(element)}
                 />
+              </div>
+
+              <div className="split_fields">
+                <FormFields 
+                  id={'result'}
+                  formData={this.state.formData.result}
+                  change={(element) => this.updateForm(element)}
+                />
+                {/* <FormFields 
+                  id={'stadium'}
+                  formData={this.state.formData.stadium}
+                  change={(element) => this.updateForm(element)}
+                /> */}
               </div>
 
             </form>
