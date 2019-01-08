@@ -11,6 +11,8 @@ class AddEditMatch extends Component {
     super(props);
     this.updateFields = this.updateFields.bind(this);
     this.updateForm = this.updateForm.bind(this);
+    this.submitForm = this.submitForm.bind(this);
+    this.successForm = this.successForm.bind(this);
     this.state = {
       matchId: '',
       formType: '',
@@ -193,6 +195,49 @@ class AddEditMatch extends Component {
         const match = snapshot.val();
         getTeams(match, "Edit Match");
       })
+    }
+  }
+  successForm(message){
+    this.setState(() => ({formSuccess: message}));
+    setTimeout(() => {
+      this.setState(() => ({formSuccess: ''}));
+    }, 2200)
+  }
+  submitForm(e){
+    e.preventDefault();
+    let dataToSubmit = {};
+    let formIsValid = true;
+
+    for(let key in this.state.formData){
+      dataToSubmit[key] = this.state.formData[key].value;
+      formIsValid = this.state.formData[key].value && formIsValid;
+    }
+
+    this.state.teams.forEach((team) => {
+      if(team.shortName === dataToSubmit.local){
+        dataToSubmit['localThmb'] = team.thmb;
+      }
+      if(team.shortName === dataToSubmit.away){
+        dataToSubmit['awayThmb'] = team.thmb;
+      }
+    })
+
+    if(formIsValid){
+      if(this.state.formType === 'Edit Match'){
+        firebaseDB.ref(`matches/${this.state.matchId}`).update(dataToSubmit).then(() => {
+          this.successForm('Update completed')
+        }).catch((err) => {
+          this.setState(() => ({
+            formError: true
+          }))
+        })
+      }else{
+        // add match
+      }
+    }else{
+      this.setState(() => ({
+        formError: true
+      }))
     }
   }
   updateFields(match, teamOptions, teams, type, matchId){
