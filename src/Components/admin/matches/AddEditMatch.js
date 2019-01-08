@@ -58,6 +58,37 @@ class AddEditMatch extends Component {
           valid: false,
           validationMessage: '',
           showlabel: false
+        },
+        away: {
+          element: 'select',
+          value: '',
+          config: {
+            label: 'Select local team',
+            name: 'select_local',
+            type: 'select',
+            options: []
+          },
+          validation: {
+            required: true
+          },
+          valid: false,
+          validationMessage: '',
+          showlabel: false
+        },
+        resultAway: {
+          element: 'input',
+          value: '',
+          config: {
+            label: 'Result local',
+            name: 'result_local_input',
+            type: 'text'
+          },
+          validation: {
+            required: true
+          },
+          valid: false,
+          validationMessage: '',
+          showlabel: false
         }
       }
     }
@@ -91,6 +122,26 @@ class AddEditMatch extends Component {
                     <FormFields 
                       id={'resultLocal'}
                       formData={this.state.formData.resultLocal}
+                      change={(element) => this.updateForm(element)}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="select_team_layout">
+                <div className="label_inputs">Away</div>
+                <div className="wrapper">
+                  <div className="left">
+                    <FormFields 
+                      id={'away'}
+                      formData={this.state.formData.away}
+                      change={(element) => this.updateForm(element)}
+                    />
+                  </div>
+                  <div>
+                    <FormFields 
+                      id={'resultLocal'}
+                      formData={this.state.formData.resultAway}
                       change={(element) => this.updateForm(element)}
                     />
                   </div>
