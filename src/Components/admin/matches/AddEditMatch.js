@@ -89,6 +89,21 @@ class AddEditMatch extends Component {
           valid: false,
           validationMessage: '',
           showlabel: false
+        },
+        referee: {
+          element: 'input',
+          value: '',
+          config: {
+            label: 'Referee',
+            name: 'referee_input',
+            type: 'text'
+          },
+          validation: {
+            required: true
+          },
+          valid: false,
+          validationMessage: '',
+          showlabel: true
         }
       }
     }
@@ -140,12 +155,21 @@ class AddEditMatch extends Component {
                   </div>
                   <div>
                     <FormFields 
-                      id={'resultLocal'}
+                      id={'resultAway'}
                       formData={this.state.formData.resultAway}
                       change={(element) => this.updateForm(element)}
                     />
                   </div>
                 </div>
+              </div>
+
+              <div className="split_fields">
+                <FormFields 
+                  id={'referee'}
+                  formData={this.state.formData.referee}
+                  change={(element) => this.updateForm(element)}
+                />
+
               </div>
 
             </form>
