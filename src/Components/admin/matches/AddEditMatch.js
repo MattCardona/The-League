@@ -104,6 +104,21 @@ class AddEditMatch extends Component {
           valid: false,
           validationMessage: '',
           showlabel: true
+        },
+        stadium: {
+          element: 'input',
+          value: '',
+          config: {
+            label: 'Stadium',
+            name: 'stadium_input',
+            type: 'text'
+          },
+          validation: {
+            required: true
+          },
+          valid: false,
+          validationMessage: '',
+          showlabel: true
         }
       }
     }
@@ -169,7 +184,11 @@ class AddEditMatch extends Component {
                   formData={this.state.formData.referee}
                   change={(element) => this.updateForm(element)}
                 />
-
+                <FormFields 
+                  id={'stadium'}
+                  formData={this.state.formData.stadium}
+                  change={(element) => this.updateForm(element)}
+                />
               </div>
 
             </form>
