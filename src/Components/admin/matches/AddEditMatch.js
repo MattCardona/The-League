@@ -22,12 +22,42 @@ class AddEditMatch extends Component {
             type: 'date'
           },
           validation: {
-            required: true,
-            email: true
+            required: true
           },
           valid: false,
           validationMessage: '',
           showlabel: true
+        },
+        local: {
+          element: 'select',
+          value: '',
+          config: {
+            label: 'Select local team',
+            name: 'select_local',
+            type: 'select',
+            options: []
+          },
+          validation: {
+            required: true
+          },
+          valid: false,
+          validationMessage: '',
+          showlabel: false
+        },
+        resultLocal: {
+          element: 'input',
+          value: '',
+          config: {
+            label: 'Result local',
+            name: 'result_local_input',
+            type: 'text'
+          },
+          validation: {
+            required: true
+          },
+          valid: false,
+          validationMessage: '',
+          showlabel: false
         }
       }
     }
@@ -46,6 +76,27 @@ class AddEditMatch extends Component {
                 formData={this.state.formData.date}
                 change={(element) => this.updateForm(element)}
               />
+
+              <div className="select_team_layout">
+                <div className="label_inputs">Local</div>
+                <div className="wrapper">
+                  <div className="left">
+                    <FormFields 
+                      id={'local'}
+                      formData={this.state.formData.local}
+                      change={(element) => this.updateForm(element)}
+                    />
+                  </div>
+                  <div>
+                    <FormFields 
+                      id={'resultLocal'}
+                      formData={this.state.formData.resultLocal}
+                      change={(element) => this.updateForm(element)}
+                    />
+                  </div>
+                </div>
+              </div>
+
             </form>
           </div>
         </div>
