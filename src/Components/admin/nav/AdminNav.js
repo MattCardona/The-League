@@ -11,7 +11,7 @@ const AdminNav = () => {
     },
     {
       title: 'Add Match',
-      linkTo: '/admin_matches/edit_match'
+      linkTo: '/admin_matches/edit_matches'
     },
     {
       title: 'Players',

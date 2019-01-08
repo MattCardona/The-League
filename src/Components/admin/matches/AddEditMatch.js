@@ -189,7 +189,7 @@ class AddEditMatch extends Component {
     };
 
     if(!matchId){
-      // add a match if one doesnot exist
+      getTeams(false, "Add Match")
     }else{
       firebaseDB.ref(`matches/${matchId}`).once('value').then((snapshot) => {
         const match = snapshot.val();
@@ -232,7 +232,13 @@ class AddEditMatch extends Component {
           }))
         })
       }else{
-        // add match
+        fireMatches.push(dataToSubmit).then(() => {
+          this.props.history.push('/admin_matches')
+        }).catch((err) => {
+          this.setState(() => ({ 
+            formError: err
+          }));
+        })
       }
     }else{
       this.setState(() => ({
