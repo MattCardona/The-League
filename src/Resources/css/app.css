@@ -824,14 +824,21 @@ Need to make the stripes even more responsive
     }
 
     /* admin_matches */
-    .MuiTableCell-root-91{
+    td{
         padding: 5px !important;
     }
-
-    /* add/edit match */
+    th{
+        padding: 5px !important;
+    }
+    /* edit match */
     .editmatch_dialog_wrapper,
     .editplayers_dialog_wrapper {
         width: 327px;
+    }
+
+    /* admin_players */
+    .MuiTableCell-root-159{
+        padding: 5px !important;
     }
 }
 
@@ -907,7 +914,14 @@ Need to make the stripes even more responsive
     .promotion_wrapper .promotion_animation .right div {
         margin-left: 60px;
     }
-    /* add/edit match */
+    /* admin_matches */
+    td{
+        padding: 5px !important;
+    }
+    th{
+        padding: 5px !important;
+    }
+    /* edit match */
     .editmatch_dialog_wrapper,
     .editplayers_dialog_wrapper {
         width: 264px;
