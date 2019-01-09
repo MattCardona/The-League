@@ -754,19 +754,6 @@ footer .footer_disclamer {
             MEETPLAYERS BLOCK
     ===============================*/
 
-    /* .home_meetplayers_wrapper {
-        padding-bottom: 100px;
-        min-height: 600px;
-    }
-
-    .home_meetplayers .home_card_wrapper {
-        position: relative;
-        float: left;
-        width: 630px;
-        min-height: 600px;
-    }
-     */
-
     .home_meetplayers  .home_text_wrapper {
         /* margin-top: -500px; */
         position: relative; 
@@ -836,9 +823,8 @@ Need to make the stripes even more responsive
         text-align: center;
     }
 
-    /* /admin_matches */
-    .MuiTableCell-root-91 {
-        padding: none;
+    .MuiTableCell-root-91{
+        padding: 5px !important;
     }
 }
 
