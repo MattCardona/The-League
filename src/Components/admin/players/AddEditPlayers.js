@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AdminLayout from '../../../Hoc/AdminLayout.js';
 import FormFields from '../../ui/FormFields.js';
+import Fileuploader from '../../ui/FileUploader.js';
 import { validate } from '../../ui/misc.js';
 import { firebasePlayers, firebase, firebaseDB } from '../../../firebase.js';
 
@@ -10,6 +11,8 @@ class AddEditPlayers extends Component {
     super(props);
     this.updateForm = this.updateForm.bind(this);
     this.submitForm = this.submitForm.bind(this);
+    this.resetImage = this.resetImage.bind(this);
+    this.storeFilename = this.storeFilename.bind(this);
     this.state = {
       playerId: '',
       formType: '',
@@ -82,6 +85,14 @@ class AddEditPlayers extends Component {
           valid: false,
           validationMessage: '',
           showlabel: true
+        },
+        image: {
+          element: 'image',
+          value: '',
+          validation: {
+            required: true
+          },
+          valid: true
         }
       }
     }
@@ -127,6 +138,8 @@ class AddEditPlayers extends Component {
     // console.log(newFormData);
     this.setState(() => ({formData: newFormData, formError: false}));
   }
+  resetImage(){}
+  storeFilename(){}
   render() {
     return (
       <AdminLayout> 
@@ -134,6 +147,16 @@ class AddEditPlayers extends Component {
           <h2>{this.state.formType}</h2>
           <div>
             <form onSubmit={(event) => this.submitForm(event)}>
+
+              <Fileuploader
+                dir="players"
+                tag={"Player image"}
+                defaultImg={this.state.defaultImg}
+                defaultImgName={this.state.formData.image.value}
+                resetImage={() => this.resetImage()}
+                filename={(filename) => this.storeFilename(filename)}
+              />
+
               <FormFields 
                 id={'name'}
                 formData={this.state.formData.name}
