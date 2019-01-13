@@ -7,7 +7,7 @@ import { firebasePlayers, firebase, firebaseDB } from '../../../firebase.js';
 
 
 class AddEditPlayers extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.updateForm = this.updateForm.bind(this);
     this.submitForm = this.submitForm.bind(this);
@@ -73,10 +73,10 @@ class AddEditPlayers extends Component {
             name: 'select_position',
             type: 'select',
             options: [
-              {key: "Keeper", value: "Keeper"},
-              {key: "Defense", value: "Defense"},
-              {key: "Midfield", value: "Midfield"},
-              {key: "Striker", value: "Striker"},
+              { key: "Keeper", value: "Keeper" },
+              { key: "Defense", value: "Defense" },
+              { key: "Midfield", value: "Midfield" },
+              { key: "Striker", value: "Striker" },
             ]
           },
           validation: {
@@ -92,57 +92,83 @@ class AddEditPlayers extends Component {
           validation: {
             required: true
           },
-          valid: true
+          valid: false
         }
       }
     }
   }
-  componentDidMount(){
+  componentDidMount() {
     const playerId = this.props.match.params.id;
-    if(!playerId){
+    if (!playerId) {
       this.setState(() => ({
         formType: 'Add player'
       }))
-    }else{
+    } else {
       // edit player
     }
   }
-  submitForm(e){
+  submitForm(e) {
     e.preventDefault();
     let dataToSubmit = {};
     let formIsValid = true;
 
-    for(let key in this.state.formData){
+    for (let key in this.state.formData) {
       dataToSubmit[key] = this.state.formData[key].value;
       formIsValid = this.state.formData[key].value && formIsValid;
     }
 
-    if(formIsValid){
+    if (formIsValid) {
       // submit form 
-    }else{
+    } else {
       this.setState(() => ({
         formError: true
       }))
     }
   }
-  updateForm(element){
-    const newFormData = {...this.state.formData};
-    const newElement = {...newFormData[element.id]};
+  updateForm(element, content = '') {
+    const newFormData = { ...this.state.formData };
+    const newElement = { ...newFormData[element.id] };
 
-    newElement.value = element.event.target.value;
+    if (content === '') {
+      newElement.value = element.event.target.value;
+    } else {
+      newElement.value = content;
+    }
+
+
     let validData = validate(newElement);
     newElement.valid = validData[0];
     newElement.validationMessage = validData[1];
 
     newFormData[element.id] = newElement;
     // console.log(newFormData);
-    this.setState(() => ({formData: newFormData, formError: false}));
+    this.setState(() => ({ formData: newFormData, formError: false }));
   }
-  resetImage(){}
-  storeFilename(){}
+  resetImage() {
+    const newFormdata = { ...this.state.formData };
+    const filename = this.state.formData.image.value;
+    newFormdata['image'].value = '';
+    newFormdata['image'].valid = false;
+    firebase.storage()
+    .ref("players")
+    .child(filename)
+    .delete()
+    .then(() => {
+      this.setState(() => ({
+        defaultImg: '',
+        formdata: newFormdata
+      }))
+    }).catch((err) => {
+      console.log("there was a error")
+    })
+
+  }
+  storeFilename(filename) {
+    this.updateForm({ id: 'image' }, filename);
+  }
   render() {
     return (
-      <AdminLayout> 
+      <AdminLayout>
         <div className="editplayers_dialog_wrapper">
           <h2>{this.state.formType}</h2>
           <div>
@@ -157,22 +183,22 @@ class AddEditPlayers extends Component {
                 filename={(filename) => this.storeFilename(filename)}
               />
 
-              <FormFields 
+              <FormFields
                 id={'name'}
                 formData={this.state.formData.name}
                 change={(element) => this.updateForm(element)}
               />
-              <FormFields 
+              <FormFields
                 id={'lastname'}
                 formData={this.state.formData.lastname}
                 change={(element) => this.updateForm(element)}
               />
-              <FormFields 
+              <FormFields
                 id={'number'}
                 formData={this.state.formData.number}
                 change={(element) => this.updateForm(element)}
               />
-              <FormFields 
+              <FormFields
                 id={'position'}
                 formData={this.state.formData.position}
                 change={(element) => this.updateForm(element)}
