@@ -13,6 +13,7 @@ class AddEditPlayers extends Component {
     this.submitForm = this.submitForm.bind(this);
     this.resetImage = this.resetImage.bind(this);
     this.storeFilename = this.storeFilename.bind(this);
+    this.updateFields = this.updateFields.bind(this);
     this.state = {
       playerId: '',
       formType: '',
@@ -104,8 +105,30 @@ class AddEditPlayers extends Component {
         formType: 'Add player'
       }))
     } else {
-      // edit player
+      firebaseDB.ref(`players/${playerId}`).once('value')
+      .then((snapshot) => {
+        const playerData = snapshot.val();
+        firebase.storage().ref('players')
+        .child(playerData.image).getDownloadURL()
+        .then((url) => {
+          this.updateFields(playerData, playerId, 'Edit player', url);
+        })
+      })
     }
+  }
+  updateFields(player, playerId, formType, defaultImg){
+    const newFormData = {...this.state.formData};
+
+    for(let key in newFormData){
+      newFormData[key].value = player[key];
+      newFormData[key].valid = true;
+    }
+    this.setState(() => ({
+      playerId,
+      defaultImg,
+      formType,
+      formData: newFormData
+    }))
   }
   submitForm(e) {
     e.preventDefault();
