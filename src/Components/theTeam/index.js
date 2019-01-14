@@ -88,6 +88,13 @@ class MeetTeam extends Component {
                 </div>
               </div>
 
+              <div className="team_category_wrapper">
+                <div className="title">Strikers</div>
+                <div className="team_cards">
+                  {this.showplayersByCategory('Striker')}
+                </div>
+              </div>
+
             </div>
           :null
         }
