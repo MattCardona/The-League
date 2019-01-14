@@ -66,12 +66,21 @@ class MeetTeam extends Component {
       <div className="the_team_container" style={{ background: `#903749 url(${Stripes}) repeat`}}>
         { !this.state.loading ? 
             <div>
+
               <div className="team_category_wrapper">
                 <div className="title">Keepers</div>
                 <div className="team_cards">
                   {this.showplayersByCategory('Keeper')}
                 </div>
               </div>
+
+              <div className="team_category_wrapper">
+                <div className="title">Defense</div>
+                <div className="team_cards">
+                  {this.showplayersByCategory('Defense')}
+                </div>
+              </div>
+
             </div>
           :null
         }
