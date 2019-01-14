@@ -926,4 +926,8 @@ Need to make the stripes even more responsive
     .editplayers_dialog_wrapper {
         width: 264px;
     }
+
+    .player_card_wrapper {
+        width: 270px;
+    }
 }
