@@ -81,6 +81,13 @@ class MeetTeam extends Component {
                 </div>
               </div>
 
+              <div className="team_category_wrapper">
+                <div className="title">Mid-Field</div>
+                <div className="team_cards">
+                  {this.showplayersByCategory('Midfield')}
+                </div>
+              </div>
+
             </div>
           :null
         }
