@@ -14,6 +14,7 @@ class AddEditPlayers extends Component {
     this.resetImage = this.resetImage.bind(this);
     this.storeFilename = this.storeFilename.bind(this);
     this.updateFields = this.updateFields.bind(this);
+    this.successForm = this.successForm.bind(this);
     this.state = {
       playerId: '',
       formType: '',
@@ -112,6 +113,8 @@ class AddEditPlayers extends Component {
         .child(playerData.image).getDownloadURL()
         .then((url) => {
           this.updateFields(playerData, playerId, 'Edit player', url);
+        }).catch((err) => {
+          this.updateFields({...playerData, image: ''}, playerId, 'Edit player', '');
         })
       })
     }
@@ -143,7 +146,13 @@ class AddEditPlayers extends Component {
     if (formIsValid) {
       // submit form 
       if(this.state.formType === 'Edit player'){
-        
+        firebaseDB.ref(`players/${this.state.playerId}`)
+        .update(dataToSubmit)
+        .then(() => {
+          this.successForm('Updated');
+        }).catch((err) => {
+          this.setState(() => ({formError: true}));
+        })
       }else{
         firebasePlayers.push(dataToSubmit).then(() => {
           this.props.history.push('/admin_players');
@@ -197,6 +206,17 @@ class AddEditPlayers extends Component {
   }
   storeFilename(filename) {
     this.updateForm({ id: 'image' }, filename);
+  }
+  successForm(message){
+    this.setState(() => ({
+      formSuccess: message
+    }));
+
+    setTimeout(() => {
+      this.setState(() => ({
+        formSuccess: ''
+      }));
+    }, 2100);
   }
   render() {
     return (
