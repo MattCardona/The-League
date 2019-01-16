@@ -58,7 +58,6 @@ class MeetTeam extends Component {
           </Fade>
         :null
       })
-      :null
     )
   }
   render() {
