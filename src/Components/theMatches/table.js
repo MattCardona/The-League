@@ -60,7 +60,7 @@ class LeagueTable extends Component {
                 <div className="title">
                     League Table
                 </div>
-                <div style={{background: '#98c6e9'}}>
+                <div style={{background: '#913648'}}>
                 <Table>
                     <TableHead>
                         <TableRow>
