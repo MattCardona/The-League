@@ -314,7 +314,7 @@ footer .footer_disclamer {
     clear: both;
 }
 
-.match_box_big .block_wraper {
+.match_box_big .block_wrapper {
     display: inline-block;
     margin-right: 50px;
     float: left;
@@ -342,7 +342,7 @@ footer .footer_disclamer {
     font-weight: 500;
 }
 
-.block_wraper.nfo {
+.block_wrapper.info {
     border-left: 1px solid #98c6e9;
     height: 102px;
     padding-left: 10px;
@@ -350,7 +350,7 @@ footer .footer_disclamer {
     color: #5e5e5e;
 }
 
-.block_wraper.nfo div {
+.block_wrapper.info div {
     margin: 5px 0px;
 }
 
