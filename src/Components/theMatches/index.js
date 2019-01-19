@@ -29,17 +29,26 @@ class TheMatches extends Component {
       }));
     })
   }
-  showPlayed(op){
+  showPlayed(option){
     const list = this.state.matches.filter((match) => {
-      return match.final === op;
+      return match.final === option;
     });
     this.setState({
-      filterMatches: op === 'All' ? this.state.matches : list,
-      playedFilter: op,
+      filterMatches: option === 'All' ? this.state.matches : list,
+      playedFilter: option,
       resultFilter: 'All'
     })
   }
-  showResult(){}
+  showResult(option){
+    const list = this.state.matches.filter((match) => {
+      return match.result === option;
+    });
+    this.setState({
+      filterMatches: option === 'All' ? this.state.matches : list,
+      playedFilter: 'All',
+      resultFilter: option
+    })
+  }
   render() {
     const state = this.state;
     return (
@@ -84,18 +93,18 @@ class TheMatches extends Component {
                   >
                     All
                   </div>
-                  <div className={`option ${state.resultFilter === 'Win' ? 'active' : ''}`}
-                    onClick={() => this.showResult('Win')}
+                  <div className={`option ${state.resultFilter === 'W' ? 'active' : ''}`}
+                    onClick={() => this.showResult('W')}
                   >
                     Win
                   </div>
-                  <div className={`option ${state.resultFilter === 'Lose' ? 'active' : ''}`}
-                    onClick={() => this.showResult('Lose')}
+                  <div className={`option ${state.resultFilter === 'L' ? 'active' : ''}`}
+                    onClick={() => this.showResult('L')}
                   >
                     Lose
                   </div>
-                  <div className={`option ${state.resultFilter === 'Draw' ? 'active' : ''}`}
-                    onClick={() => this.showResult('Draw')}
+                  <div className={`option ${state.resultFilter === 'D' ? 'active' : ''}`}
+                    onClick={() => this.showResult('D')}
                   >
                     Draw
                   </div>
