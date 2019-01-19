@@ -930,4 +930,8 @@ Need to make the stripes even more responsive
     .player_card_wrapper {
         width: 270px;
     }
+    
+    .not_found_container{
+        font-size: 75px;
+    }
 }
