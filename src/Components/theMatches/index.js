@@ -9,6 +9,7 @@ import { firebaseLooper, reverseArray } from '../ui/misc.js';
 class TheMatches extends Component {
   constructor(props){
     super(props);
+    this.showPlayed = this.showPlayed.bind(this);
     this.state = {
       loading: true,
       matches: [],
@@ -27,6 +28,16 @@ class TheMatches extends Component {
       }));
     })
   }
+  showPlayed(op){
+    const list = this.state.matches.filter((match) => {
+      return match.final === op;
+    });
+    this.setState({
+      filterMatches: op === 'All' ? this.state.matches : list,
+      playerFilters: op,
+      resultFilter: 'All'
+    })
+  }
   render() {
     const state = this.state;
     return (
@@ -39,13 +50,19 @@ class TheMatches extends Component {
                   Show Match
                 </div>
                 <div className="cont">
-                  <div className={`option`}>
+                  <div className={`option`}
+                    onClick={() => this.showPlayed('All')}
+                  >
                     All
                   </div>
-                  <div className={`option`}>
+                  <div className={`option`}
+                    onClick={() => this.showPlayed('Yes')}
+                  >
                     Played
                   </div>
-                  <div className={`option`}>
+                  <div className={`option`}
+                    onClick={() => this.showPlayed('No')}
+                  >
                     Not Played
                   </div>
                 </div>
