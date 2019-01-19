@@ -62,6 +62,17 @@ class MatchesList extends Component {
                         }}
                       ></div>
                       <div className="team">{data.local}</div>
+                      <div className="result">{data.resultLocal}</div>
+                    </div>
+
+                    <div className="block">
+                      <div className="icon"
+                        style={{
+                          background: `url(/images/team_icons/${data.awayThmb}.png`
+                        }}
+                      ></div>
+                      <div className="team">{data.away}</div>
+                      <div className="result">{data.resultAway}</div>
                     </div>
 
                   </div>
@@ -74,7 +85,7 @@ class MatchesList extends Component {
     )
   }
   render() {
-    console.log(this.state.matchlist)
+    // console.log(this.state.matchlist)
     return (
       <div>
         {this.showMatches()}
