@@ -53,7 +53,18 @@ class MatchesList extends Component {
                     transform: `translate(${x}px)`
                   }}  
                 >
-                   This will be a transition
+                  <div className="block_wrapper">
+
+                    <div className="block">
+                      <div className="icon"
+                        style={{
+                          background: `url(/images/team_icons/${data.localThmb}.png`
+                        }}
+                      ></div>
+                      <div className="team">{data.local}</div>
+                    </div>
+
+                  </div>
                 </div>
               ))}
             </div>
